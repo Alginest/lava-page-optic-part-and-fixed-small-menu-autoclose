@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@400;800&family=Titillium+Web:wght@900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --white-color: #fff;
+  --gray-color: rgb(112, 111, 111);
+  --orange-color: orange;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style: none;
+}
+.container {
+  max-width: 1140px;
+  height: inherit;
+  margin: 0 auto;
+}
+.btn-primary {
+  padding: 20px 40px;
+  border-radius: 30px;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background 0.3s ease-in;
+}
+.btn-primary:hover {
+  background-color: rgb(243, 85, 111);
+}
+.text-center {
+  text-align: center;
+}
+/*Header*/
+
+header {
+  width: 100%;
+  height: 900px;
+  background-color: white;
+  background-image: url(./images/banner-bg.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+}
+header .container nav {
+  position: relative;
+  height: 80px;
+  display: flex;
+}
+/*small-screen cont*/
+header .container nav .small-links-cont {
+  width: 600px;
+  height: 250px;
+  display: none;
+  position: absolute;
+  left: 20%;
+  top: 80px;
+  background-color: rgb(245, 245, 245);
+}
+header .container nav .small-links-cont.active {
+  display: block;
+}
+header .container nav .small-links-cont ul {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+header .container nav .small-links-cont ul li {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgb(223, 223, 223);
+  padding: 9px 0;
+}
+header .container nav .small-links-cont ul li a {
+  width: 100%;
+  text-align: center;
+}
+header .container nav .small-links-cont ul li a:hover {
+  color: var(--orange-color);
+}
+header .container nav .small-links-cont ul li:hover {
+  background-color: rgb(212, 212, 212);
+  color: var(--orange-color);
+}
+header .container nav .small-links-cont ul li a {
+  font-size: 14px;
+}
+header .container nav .small-links-cont ul .more-info {
+  position: relative;
+}
+header .container nav .small-links-cont ul .more-info p {
+  font-size: 14px;
+}
+header .container nav .small-links-cont ul .more-info .drop-icon {
+  position: absolute;
+  right: 50px;
+  width: 20px;
+  font-size: 12px;
+  margin-top: 2px;
+}
+/*submenu*/
+header .container nav .small-links-cont ul .more-info .submenu {
+  width: 600px;
+  height: 200px;
+  display: none;
+  position: absolute;
+  top: 49px;
+  background-color: rgb(245, 245, 245);
+  transition: all 0.5s ease-in;
+}
+header .container nav .small-links-cont ul .more-info .submenu ul {
+  height: inherit;
+}
+header .container nav .small-links-cont ul .more-info:hover .submenu {
+  display: flex;
+}
+/*logo*/
+header .container nav .logo-cont {
+  width: 85px;
+  margin: 0 5px;
+}
+header .container nav .logo-cont a {
+  line-height: 80px;
+  color: #191a20;
+  font-size: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/*hamburger*/
+header .container nav .drop-btn {
+  width: 48%;
+  display: none;
+  justify-content: center;
+}
+header .container nav .drop-btn .menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+header .container nav .drop-btn .menu-btn .menu-btn_burger {
+  width: 40px;
+  height: 2px;
+  background: black;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+header .container nav .drop-btn .menu-btn .menu-btn_burger::before,
+header .container nav .drop-btn .menu-btn .menu-btn_burger::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: black;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+header .container nav .drop-btn .menu-btn .menu-btn_burger::before {
+  transform: translateY(-16px);
+}
+header .container nav .drop-btn .menu-btn .menu-btn_burger::after {
+  transform: translateY(16px);
+}
+/*animation*/
+header .container nav .drop-btn .menu-btn.open .menu-btn_burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+header .container nav .drop-btn .menu-btn.open .menu-btn_burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+header .container nav .drop-btn .menu-btn.open .menu-btn_burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+/*nav-links*/
+header .container nav .links-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+header .container nav .links-cont ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 610px;
+  height: 40px;
+  background-color: var(--white-color);
+}
+header .container nav .links-cont ul li a {
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  color: var(--gray-color);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-align: center;
+  transition: all 0.3s;
+}
+header .container nav .links-cont ul li a.selected {
+  color: orange !important;
+}
+header .container nav .links-cont ul li a::selection {
+  background: #f1556a;
+  color: #fff;
+}
+header .container nav .links-cont ul li a:hover {
+  color: var(--orange-color);
+}
+header .container nav .links-cont ul li p {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  color: var(--gray-color);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-align: center;
+  transition: all 0.3s;
+}
+header .container nav .links-cont ul .more-info p .drop-icon {
+  font-size: 10px;
+}
+header .container nav .links-cont ul .more-info p:hover {
+  color: var(--orange-color);
+}
+/*sub-menu*/
+header .container nav .links-cont ul .more-info .submenu {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 2px 2px 5px black;
+  transition: all 0.5s ease-in;
+}
+header .container nav .links-cont ul .more-info:hover .submenu {
+  display: flex;
+}
+/*edit submenu*/
+header .container nav .links-cont ul .more-info .submenu li {
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid rgb(233, 232, 232);
+  transition: border 0.2s;
+}
+
+header .container nav .links-cont ul .more-info .submenu li:hover {
+  border-left: 5px solid var(--orange-color);
+}
+header .container nav .links-cont ul li .submenu li a {
+  margin-left: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+header .container nav .links-cont ul .more-info .submenu li:hover > a {
+  color: var(--orange-color);
+}
+/*hero-section*/
+header .container .hero-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+header .container .hero-content .hero-position {
+  width: 50%;
+  height: 450px;
+}
+header .container .hero-content .hero-position h1 {
+  font-size: 65px;
+  font-weight: 900;
+  color: rgb(41, 40, 40);
+}
+header .container .hero-content .hero-position h2 {
+  color: var(--orange-color);
+  font-size: 60px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+header .container .hero-content .hero-position p {
+  line-height: 40px;
+  font-size: 20px;
+  margin-bottom: 50px;
+  color: var(--gray-color);
+}
+/********************************************************************************** Site Optic****************************************************************/
+.site-optic {
+  width: 100%;
+  height: 800px;
+}
+.site-optic .container {
+  width: 100%;
+  height: inherit;
+}
+.site-optic .container .item-cont {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-optic .container .item-cont .cards {
+  z-index: 2;
+  position: relative;
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+  margin: 0 10px;
+}
+.site-optic .container .item-cont .cards span {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 100px;
+  font-weight: 900;
+  z-index: 1;
+  color: rgba(243, 85, 111, 0.096);
+}
+.site-optic .container .item-cont .cards img {
+  margin: 50px 0;
+}
+.site-optic .container .item-cont .cards h2 {
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+.site-optic .container .item-cont .cards p {
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 16px;
+  color: var(--gray-color);
+  line-height: 20px;
+}
+.site-optic .container .item-cont .cards a {
+  background-color: rgb(247, 112, 1) !important;
+}
+@media (max-width: 1600px) {
+  header {
+    height: 1500px;
+    background-color: white;
+    background-image: url(./images/banner-bg.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 55em;
+  }
+  header .container {
+    height: 1500px;
+  }
+  header .container .hero-content {
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+@media (max-width: 1200px) {
+  .site-optic {
+    margin: 200px 0;
+  }
+  .site-optic .container .item-cont {
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .site-optic .container .item-cont .cards {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 978px) {
+  header .container nav {
+    position: fixed;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    z-index: 10;
+  }
+  header .container nav .logo-cont {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  header .container nav .logo-cont a {
+    font-size: 36px;
+  }
+
+  header .container nav .links-cont {
+    display: none;
+  }
+  header .container nav .drop-btn {
+    display: flex;
+  }
+  /*small*/
+}
